@@ -3,7 +3,10 @@ set sw=4
 set et
 set bg=dark
 set smartindent
-colorscheme gc-ubuntu
+set fileencodings=utf-8
+if $TERM != 'xterm'
+    colorscheme gc-ubuntu " Only required for Mac iTerm2 client
+endif
 set noeb
 set novb
 set path=.,, "stop that annoying display of every config file on the system!
@@ -32,6 +35,7 @@ map<C-\><C-\> :tabn<CR>
 
 nmap ,w :x<CR>
 nmap ,q :q!<CR>
+nmap :W :w<CR>
 set showcmd
 set ruler
 
@@ -40,7 +44,7 @@ set incsearch
 nnoremap <Esc>P P'[v' ]=
 set undolevels=1000
 
-:imap ;EM @author Gavin Corbett <gcorbett@ibuildings.com>
+:imap ;EM gavin.corbett@dowjones.com
 :imap ;D die(__FILE__ . ' : ' . __LINE__);
 :imap ;GRC /**<CR>* Greenem<CR>*<CR>* @category   Greenem_Frontend<CR>* @package    models<CR>*/
 :imap ;PF  $db = Zend_Db_Table_Abstract::getDefaultAdapter();<CR>$profiler = $db->getProfiler();<CR>$profiler->setEnabled(true);
@@ -72,7 +76,6 @@ au BufNewFile,BufRead *.lng set filetype=php
 au BufNewFile,BufRead *.inc set filetype=php
 
 au BufNewFile,BufRead *.json set filetype=javascript
-au VimLeave * :!clear
 
 " set "make" command when editing php files
 set makeprg=php\ -l\ %
@@ -292,7 +295,7 @@ autocmd FileType php hi MatchParen ctermbg=blue guibg=lightblue
 " GUI Settings {
 if has("gui_running")
     " Basics {
-        colorscheme darkburn " my color scheme (only works in GUI)
+"        colorscheme darkburn " my color scheme (only works in GUI)
         set columns=180 " perfect size for me
 "        set guifont=Consolas:h8 " My favorite font
         set guioptions=ce
@@ -390,4 +393,10 @@ if has("autocmd")
       \ if line("'\"") > 0 && line ("'\"") <= line("$") |
       \   exe "normal! g'\"" |
       \ endif
-end
+endif
+
+let g:phpqa_messdetector_ruleset = "~/.vim/qatools/pmd.xml"
+let g:phpqa_codesniffer_args = "--standard=FNO"
+let g:phpqa_messdetector_autorun = 1  "Run messdetector on save
+let g:phpqa_codesniffer_autorun = 1 "Run codesniffer on save
+let g:phpqa_codecoverage_autorun = 0 "Don't show code coverage on load
