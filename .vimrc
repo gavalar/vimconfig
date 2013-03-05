@@ -81,7 +81,6 @@ au BufNewFile,BufRead *.json set filetype=javascript
 set makeprg=php\ -l\ %
 set errorformat=%m\ in\ %f\ on\ line\ %l
 
-
 " set auto-highlighting of matching brackets for php only
 autocmd FileType php DoMatchParen
 autocmd FileType php hi MatchParen ctermbg=blue guibg=lightblue
@@ -237,6 +236,13 @@ autocmd FileType php hi MatchParen ctermbg=blue guibg=lightblue
                                         " of the screen
         let Tlist_WinWidth = 40 " 40 cols wide, so i can (almost always)
                                  " read my functions
+"Taglist stuffs
+        let Tlist_Auto_Open = 1
+        let Tlist_Auto_Update = 1
+        let Tlist_Auto_Highlight_Tag = 1
+        let Tlist_Display_Tag_Scope = 1
+        "let Tlist_Display_Prototype = 1
+        let Tlist_Show_One_File = 0
         " Language Specifics {
             " just functions and classes please
             let tlist_aspjscript_settings = 'asp;f:function;c:class'
@@ -321,15 +327,6 @@ set guifont=Andale\ Mono\ 9
 set formatoptions=tcqor
 set comments=sl:/*,mb:*,elx:*/
 
-"Taglist stuffs
-let Tlist_Auto_Open = 1
-let Tlist_Auto_Update = 1
-let Tlist_Auto_Highlight_Tag = 1
-let Tlist_Display_Tag_Scope = 1
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_File_Fold_Auto_Close = 1
-"let Tlist_Display_Prototype = 1
-let Tlist_Show_One_File = 1
 
 " php syntax stuffs
 let php_sql_query = 1
@@ -350,6 +347,10 @@ au BufWinEnter *.php let w:m2=matchadd('ErrorMsg', '\%>160v.\+', -1)
 au BufWinEnter *.php let w:m3=matchadd('ErrorMsg', '\s\+$', -1)
 au BufWinEnter *.php let w:m4=matchadd('ErrorMsg', '\(if\|foreach\|switch\|elseif\)(', -1)
 au BufRead,BufNewFile inc.php set syntax=php
+
+au FileType php set omnifunc=phpcomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+set completeopt=menuone,longest,preview
 
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
@@ -400,3 +401,4 @@ let g:phpqa_codesniffer_args = "--standard=FNO"
 let g:phpqa_messdetector_autorun = 1  "Run messdetector on save
 let g:phpqa_codesniffer_autorun = 1 "Run codesniffer on save
 let g:phpqa_codecoverage_autorun = 0 "Don't show code coverage on load
+let g:SuperTabDefaultCompletionType = "context"

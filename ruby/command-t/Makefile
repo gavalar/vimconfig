@@ -4,65 +4,65 @@ SHELL = /bin/sh
 #### Start of system configuration section. ####
 
 srcdir = .
-topdir = /opt/local/lib/ruby/1.8/i686-darwin11
+topdir = /usr/lib/ruby/1.8/x86_64-linux
 hdrdir = $(topdir)
 VPATH = $(srcdir):$(topdir):$(hdrdir)
 exec_prefix = $(prefix)
-prefix = $(DESTDIR)/opt/local
-psdir = $(docdir)
-vendorlibdir = $(vendordir)/$(ruby_version)
-archdir = $(rubylibdir)/$(arch)
-sbindir = $(exec_prefix)/sbin
+prefix = $(DESTDIR)/usr
 htmldir = $(docdir)
+mandir = $(prefix)/share/man
 libdir = $(exec_prefix)/lib
-sharedstatedir = $(prefix)/com
-sitearchdir = $(sitelibdir)/$(sitearch)
-docdir = $(datarootdir)/doc/$(PACKAGE)
 oldincludedir = $(DESTDIR)/usr/include
-pdfdir = $(docdir)
-dvidir = $(docdir)
-libexecdir = $(exec_prefix)/libexec
-sitedir = $(libdir)/ruby/site_ruby
-sysconfdir = $(prefix)/etc
-vendorarchdir = $(vendorlibdir)/$(sitearch)
-mandir = $(DESTDIR)/opt/local/share/man
-localstatedir = $(prefix)/var
-datadir = $(datarootdir)
+sharedstatedir = $(prefix)/com
 localedir = $(datarootdir)/locale
-sitelibdir = $(sitedir)/$(ruby_version)
-vendordir = $(DESTDIR)/opt/local/lib/ruby/vendor_ruby
-datarootdir = $(prefix)/share
+vendordir = $(libdir)/ruby/vendor_ruby
 rubylibdir = $(libdir)/ruby/$(ruby_version)
-infodir = $(datarootdir)/info
-includedir = $(prefix)/include
+sysconfdir = $(DESTDIR)/etc
+datarootdir = $(prefix)/share
+infodir = $(prefix)/share/info
+dvidir = $(docdir)
 bindir = $(exec_prefix)/bin
+sbindir = $(exec_prefix)/sbin
+datadir = $(datarootdir)
+vendorarchdir = $(vendorlibdir)/$(sitearch)
+docdir = $(datarootdir)/doc/$(PACKAGE)
+sitelibdir = $(sitedir)/$(ruby_version)
+psdir = $(docdir)
+sitedir = $(DESTDIR)/usr/local/lib/site_ruby
+localstatedir = $(DESTDIR)/var
+libexecdir = $(prefix)/lib/ruby1.8
+pdfdir = $(docdir)
+archdir = $(rubylibdir)/$(arch)
+sitearchdir = $(sitelibdir)/$(sitearch)
+includedir = $(prefix)/include
+vendorlibdir = $(vendordir)/$(ruby_version)
 
-CC = /usr/bin/gcc-4.2
+CC = gcc
 LIBRUBY = $(LIBRUBY_SO)
 LIBRUBY_A = lib$(RUBY_SO_NAME)-static.a
 LIBRUBYARG_SHARED = -l$(RUBY_SO_NAME)
 LIBRUBYARG_STATIC = -l$(RUBY_SO_NAME)-static
 
 RUBY_EXTCONF_H = 
-CFLAGS   =  -fno-common -pipe -O2 -arch x86_64  -fno-common -pipe -fno-common $(cflags) -arch x86_64
+CFLAGS   =  -fPIC -fno-strict-aliasing -g -g -O2  -fPIC $(cflags) 
 INCFLAGS = -I. -I$(topdir) -I$(hdrdir) -I$(srcdir)
 DEFS     = 
-CPPFLAGS = -DHAVE_RUBY_H -I/opt/local/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE $(DEFS) $(cppflags)
+CPPFLAGS = -DHAVE_RUBY_H -D_FORTIFY_SOURCE=2 $(DEFS) $(cppflags)
 CXXFLAGS = $(CFLAGS) 
-ldflags  = -L. -L/opt/local/lib -arch x86_64
+ldflags  = -L. -Wl,-Bsymbolic-functions -Wl,-z,relro -rdynamic -Wl,-export-dynamic
 dldflags = 
-archflag = -arch x86_64
+archflag = 
 DLDFLAGS = $(ldflags) $(dldflags) $(archflag)
-LDSHARED = $(CC) -dynamic -bundle -undefined suppress -flat_namespace
+LDSHARED = $(CC) -shared
 AR = ar
 EXEEXT = 
 
-RUBY_INSTALL_NAME = ruby
-RUBY_SO_NAME = ruby
-arch = i686-darwin11
-sitearch = i686-darwin11
+RUBY_INSTALL_NAME = ruby1.8
+RUBY_SO_NAME = ruby1.8
+arch = x86_64-linux
+sitearch = x86_64-linux
 ruby_version = 1.8
-ruby = /opt/local/bin/ruby
+ruby = /usr/bin/ruby1.8
 RUBY = $(ruby)
 RM = rm -f
 MAKEDIRS = mkdir -p
@@ -75,8 +75,8 @@ COPY = cp
 
 preload = 
 
-libpath = . $(libdir) /opt/local/lib
-LIBPATH =  -L. -L$(libdir) -L/opt/local/lib
+libpath = . $(libdir)
+LIBPATH =  -L. -L$(libdir)
 DEFFILE = 
 
 CLEANFILES = mkmf.log
@@ -86,11 +86,11 @@ extout =
 extout_prefix = 
 target_prefix = 
 LOCAL_LIBS = 
-LIBS = $(LIBRUBYARG_SHARED)  -lpthread -ldl -lobjc  
+LIBS = $(LIBRUBYARG_SHARED)  -lpthread -lrt -ldl -lcrypt -lm   -lc
 SRCS = ext.c match.c matcher.c
 OBJS = ext.o match.o matcher.o
 TARGET = ext
-DLLIB = $(TARGET).bundle
+DLLIB = $(TARGET).so
 EXTSTATIC = 
 STATIC_LIB = 
 
@@ -100,7 +100,7 @@ RUBYLIBDIR    = $(sitelibdir)$(target_prefix)
 RUBYARCHDIR   = $(sitearchdir)$(target_prefix)
 
 TARGET_SO     = $(DLLIB)
-CLEANLIBS     = $(TARGET).bundle $(TARGET).il? $(TARGET).tds $(TARGET).map
+CLEANLIBS     = $(TARGET).so $(TARGET).il? $(TARGET).tds $(TARGET).map
 CLEANOBJS     = *.o *.a *.s[ol] *.pdb *.exp *.bak
 
 all:		$(DLLIB)
