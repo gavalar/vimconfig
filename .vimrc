@@ -236,7 +236,6 @@ autocmd FileType php hi MatchParen ctermbg=blue guibg=lightblue
                                         " of the screen
         let Tlist_WinWidth = 40 " 40 cols wide, so i can (almost always)
                                  " read my functions
-"Taglist stuffs
         let Tlist_Auto_Open = 1
         let Tlist_Auto_Update = 1
         let Tlist_Auto_Highlight_Tag = 1
@@ -402,3 +401,5 @@ let g:phpqa_messdetector_autorun = 1  "Run messdetector on save
 let g:phpqa_codesniffer_autorun = 1 "Run codesniffer on save
 let g:phpqa_codecoverage_autorun = 0 "Don't show code coverage on load
 let g:SuperTabDefaultCompletionType = "context"
+
+let g:command_t_loaded = 0 "Disable Command T as not working just yet
