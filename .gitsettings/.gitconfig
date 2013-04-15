@@ -31,7 +31,7 @@
     coh         = !git checkout-head
     dc          = svn dcommit
     dcommit     = svn dcommit
-    info        = help
+    info        = !git-info.sh
     ls          = ls-files
     ign         = ls-files -o -i --exclude-standard
     mrgdev      = !git merge develop
