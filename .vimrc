@@ -18,6 +18,7 @@ nmap <C-H><C-H> :set hls!<CR>
 nmap <C-T><C-T> :TlistToggle<CR>
 nmap <C-S><C-S> :%s/\s\+$//g<CR>
 nmap <C-N><C-S> :/\(isValid(\)\@<!$_\(GET\|POST\|REQUEST\|SERVER\|COOKIE\)
+nmap <C-A><C-A> :call PhpQAToggle()<CR>
 
 " Sessions stuff
 set sessionoptions+=curdir
@@ -347,7 +348,7 @@ au BufWinEnter *.php let w:m3=matchadd('ErrorMsg', '\s\+$', -1)
 au BufWinEnter *.php let w:m4=matchadd('ErrorMsg', '\(if\|foreach\|switch\|elseif\)(', -1)
 au BufRead,BufNewFile inc.php set syntax=php
 
-au FileType php set omnifunc=phpcomplete#Complete
+au FileType php set omnifunc=phpcomplete#CompletePHP
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
 
@@ -403,3 +404,17 @@ let g:phpqa_codecoverage_autorun = 0 "Don't show code coverage on load
 let g:SuperTabDefaultCompletionType = "context"
 
 let g:command_t_loaded = 0 "Disable Command T as not working just yet
+
+function! PhpQAToggle()
+    if g:phpqa_messdetector_autorun
+        let g:phpqa_messdetector_autorun = 0
+    else
+        let g:phpqa_messdetector_autorun = 1
+    endif
+
+    if g:phpqa_codesniffer_autorun
+        let g:phpqa_codesniffer_autorun = 0
+    else
+        let g:phpqa_codesniffer_autorun = 1
+    endif
+endfunction
