@@ -111,7 +111,8 @@ autocmd FileType php hi MatchParen ctermbg=blue guibg=lightblue
 
 " General {
     filetype plugin indent on " load filetype plugins/indent settings
-    set autochdir " always switch to the current file directory
+    "set autochdir " always switch to the current file directory
+    autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
     set backspace=indent,eol,start " make backspace a more flexible
     set backup " make backup files
     set backupdir=~/.vim/backup " where to put backup files
@@ -402,7 +403,6 @@ let g:phpqa_messdetector_autorun = 1  "Run messdetector on save
 let g:phpqa_codesniffer_autorun = 1 "Run codesniffer on save
 let g:phpqa_codecoverage_autorun = 0 "Don't show code coverage on load
 let g:SuperTabDefaultCompletionType = "context"
-
 let g:command_t_loaded = 0 "Disable Command T as not working just yet
 
 function! PhpQAToggle()
@@ -418,3 +418,5 @@ function! PhpQAToggle()
         let g:phpqa_codesniffer_autorun = 1
     endif
 endfunction
+
+let g:gitgutter_diff_args = '-w'
