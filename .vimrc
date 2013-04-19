@@ -348,6 +348,7 @@ au BufWinEnter *.php let w:m2=matchadd('ErrorMsg', '\%>160v.\+', -1)
 au BufWinEnter *.php let w:m3=matchadd('ErrorMsg', '\s\+$', -1)
 au BufWinEnter *.php let w:m4=matchadd('ErrorMsg', '\(if\|foreach\|switch\|elseif\)(', -1)
 au BufRead,BufNewFile inc.php set syntax=php
+au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
 au FileType php set omnifunc=phpcomplete#CompletePHP
 let g:SuperTabDefaultCompletionType = "context"
