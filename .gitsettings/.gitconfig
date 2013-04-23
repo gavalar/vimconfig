@@ -17,7 +17,9 @@
     ff          = pull --ff-only
     up          = pull --ff-only origin develop
     upnoff      = pull origin develop
-    pom         = push origin develop
+    pod         = push origin develop
+    pom         = push origin master --tags
+    live        = pull origin master
     mgnoff      = merge --no-ff origin/develop
     d           = difftool
     df          = diff HEAD -w
