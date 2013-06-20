@@ -91,7 +91,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-export PATH=$PATH:/home/gcorbett/bin
+export PATH=$PATH:$HOME/bin
 
 source ~/bin/git-flow-completion.sh
 
