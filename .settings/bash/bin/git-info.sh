@@ -1,0 +1,1 @@
+/home/corbettg/.vim/.settings/git/bin/git-info.sh

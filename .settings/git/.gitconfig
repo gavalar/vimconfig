@@ -1,0 +1,100 @@
+[user]
+    name = Gavin Corbett
+    email = gavin.corbett@dowjones.com
+[github]
+    user = gavalar
+    token = 9b67c0444270b2d69a2f1059dd3cbb1c
+[core]
+    excludesfile = ~/.gitignore-global
+    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+[mergetool]
+    keepBackup = true
+[alias]
+    bare        = init --bare
+    unstash     = stash pop
+    st          = status
+    rev         = checkout
+    ff          = pull --ff-only
+    up          = pull --ff-only origin develop
+    upnoff      = pull origin develop
+    pod         = push origin develop
+    pom         = push origin master --tags
+    live        = pull origin master
+    mgnoff      = merge --no-ff origin/develop
+    d           = difftool
+    df          = diff HEAD -w
+    br          = branch
+    brm         = branch -D
+    rbrm        = push origin :
+    cb          = checkout -b
+    fhs         = flow hotfix start
+    fhf         = flow hotfix finish
+    ci          = commit
+    co          = checkout
+    type        = cat-file -t
+    dump        = cat-file -p
+    coh         = !git checkout-head
+    dc          = svn dcommit
+    dcommit     = svn dcommit
+    info        = !git-info.sh
+    ls          = ls-files
+    ign         = ls-files -o -i --exclude-standard
+    mrgdev      = !git merge develop
+    fa          = !git fetch-all
+    gh          = !git get-head
+    gha         = !git get-head-all
+    ghr         = !git get-head-remote
+    last        = log -1 HEAD
+    lg          = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    log1        = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    nm          = branch -a --no-merge
+    m           = !git st -s -uno | cut -c4- | xargs mvim
+    mvd         = !git mvim-diff
+    mvdi        = !git mvim-diverge
+    pf          = pull --ff-only
+    pu          = pull
+    scoh        = !git submodule-checkout-head
+    sf          = !git submodule-foreach
+    sfa         = !git submodule-foreach-fetch-all
+    sfb         = !git submodule-foreach-branch
+#    sfbs        = !git submodule-foreach-branch-short
+    su          = branch --set-upstream
+    ribbon      = tag --force _ribbon origin/master
+    catchup     = log --patch --reverse --topo-order _ribbon..origin/master
+
+    #get-head   = !git branch --no-color --contains HEAD | grep -v '(no branch)' | head -n 1 | sed -E 's/^[^a-zA-Z\\/-]*([a-zA-Z\\/-]+)$/\\1/g'
+    amend       = commit --amend
+    checkout-head = !git checkout `git get-head`
+    fetch-all   = !git fetch --all
+    get-branch  = !git branch | grep '*' | cut -b 3-
+    get-head-all    = !git branch --no-color --contains HEAD | grep -v '(no branch)'
+    get-head    = !git branch --no-color --contains HEAD | grep -v '(no branch)' | head -n 1 | cut -b 3-
+    get-head-remote = !git branch -a --no-color --contains HEAD | grep -v '(no branch)' | grep 'remote' | head -n 1 | cut -b 11- | sed -E 's/^([^\\/]+\\/.*)$/\\1/'
+    submodule-checkout-head = !git submodule-foreach git checkout-head
+    submodule-foreach = submodule foreach
+    submodule-foreach-fetch-all = !git submodule foreach git fetch --all
+    submodule-foreach-branch = !git submodule-foreach git get-branch
+#    submodule-foreach-branch-short = "!f() { git submodule-foreach-branch | sed \"{ N \\; s/Entering '\\(.*\\)'\\n\\(.*\\)/[\\1]: \\2/ }\" }; f"
+
+    unstage     = reset HEAD --
+    diverges    = !sh -c 'git rev-list --boundary $1...$2 | grep ^- | cut -c2-'
+    diff-name   = !git diff --name-only
+    mvim-diff   = "!f() { git-diff --name-only $1 | xargs mvim; }; f"
+    mvim-diverge    = "!f() { git diverges HEAD $1 | xargs git mvim-diff; }; f"
+#    mvim-diff   = !sh -c 'git diff-name $1 | xargs mvim'
+[color]
+    ui = auto
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
