@@ -24,7 +24,8 @@
     d           = difftool
     df          = diff HEAD -w
     br          = branch
-    brm         = branch -d
+    brm         = branch -D
+    rbrm        = push origin :
     cb          = checkout -b
     fhs         = flow hotfix start
     fhf         = flow hotfix finish
