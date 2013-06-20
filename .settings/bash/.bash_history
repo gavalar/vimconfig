@@ -498,3 +498,180 @@ ssh dev01
 ssh dev01
 ssh dev01
 ssh web2
+ll
+rm .ackrc
+ln -s ~/.vim/.settings/.bash/.ackrc 
+ll
+ssh dev01
+ssh end2end
+ssh dev01
+cd sites/projects/site-helper/
+vim application/modules/email-unsubscribe/controllers/FnoController.php 
+cd ../../
+ack Email_Unsubscribe
+fg
+ack FnoEmailProfile
+fg
+git st
+cd projects/site-helper/
+git st
+git df
+fg
+vim application/models/EmailProfile.php
+cd ~/sites/share/
+svn st
+svn ci -m "Update to add all relevent records to the merged emails"
+cd ../projects/fno
+git st
+cd ../site-helper/
+git st
+git diff
+git df
+git stash
+git fhs 2.46.2
+vim /home/corbettg/.vim/.gitsettings/.gitconfig 
+git fhs 2.46.2
+git unstash
+git ci -am "Update to get the Unsubscribe for merged emails to work correctly"
+git push origin 2.46.2
+git push origin
+git push origin hotfix/2.46.2
+cd ~/.vim
+git push 
+gits t
+git st
+git ci -am "Update to add git flow hotfix shortcuts"
+git push 
+git push --tags
+ll
+cd ../
+ll
+cd .vim
+ll
+mkdir .settings
+git add .settings/
+ll
+git mv .gitsettings/ .settings/.git
+git mv .gitsettings/ .settings/
+cd .settings/
+ll
+cd .git
+ll
+cd bin/
+ll
+cd ../../
+mkdir .bash
+cd .bash
+cp ~/.bash* .
+mdir bin
+mkdir bin
+cp ~/.bin/* .bin
+cp ~/bin/* bin
+cd bin/
+ll
+cd ../
+cp ~/.ackrc .
+cd ../../
+git st
+cd ../
+ll
+rm -rf .gitconfig
+ln -s .vim/.settings/.git/.gitconfig 
+ln -s .vim/.settings/.git/.gitignore-global 
+rm .gitignore-global
+ln -s .vim/.settings/.git/.gitignore-global 
+mv bin/
+mv bin/ bin-old
+ln -s .vim/.settings/.bash/bin 
+cd bin
+ll
+cd ../
+ll
+cd bin
+ln -s ~/.vim/.settings/.git/bin/* .
+ll
+cd ../
+git info
+cd .vim
+git info
+cd ../
+ll
+rm .bashrc
+rm .bash*
+ln -s ~/.vim/.settings/.bash/.bash* .
+ll
+rm .bash_profile~
+cd ~/.vim
+git st
+git add .settings/
+git st
+rm .settings/.bash/.bash_profile
+cd ../
+ll
+vim .settings/.bash/.bash_profile
+cd .vim/.settings/.bash
+vim .bash_profile~
+ll
+mv .bash_profile~ .bash_profile
+git st
+git add .
+git st
+cd ../../../
+cd .vim 
+git ci -am "Adding more config files to the repo - moving existing files around" 
+git push
+cd .settings/.git/
+ll
+cd ../
+git st
+cd ../
+git st
+git info
+ll
+cd .settings/
+ll
+git mv .bash/ bash
+git mv .git/ git
+ll
+mv .git git
+ll
+git st
+cd ../../../
+cd corbettg/
+ll
+rm .git*
+ln -s ~/.vim/.settings/git/.git* .
+rm bin
+rm .bash*
+rm .ackrc 
+ln -s ~/.vim/.settings/bash/bin .
+ln -s ~/.vim/.settings/bash/.bash* 
+ln -s ~/.vim/.settings/bash/.bash* .
+ll
+ln -s ~/.vim/.settings/bash/.ackrc .
+cd bin
+ln -s ~/.vim/.settings/git/bin/* .
+ll
+rm git-flow-completion.sh git-info.sh
+ln -s ~/.vim/.settings/git/bin/* .
+ll
+cd ~/.vim
+git st
+git add
+git add .
+git st
+git ci -am "Renaming folder structure"
+git push
+vim .gitconfig
+cd ../
+vim .gitconfig
+ll
+vim .bash_profile 
+vim .bashrc 
+fg
+ssh dev01
+vim .bashrc 
+ll
+vim .bashrc 
+ll
+rm .bash_profile 
