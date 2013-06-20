@@ -26,6 +26,8 @@
     br          = branch
     brm         = branch -d
     cb          = checkout -b
+    fhs         = flow hotfix start
+    fhf         = flow hotfix finish
     ci          = commit
     co          = checkout
     type        = cat-file -t
