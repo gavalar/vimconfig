@@ -25,10 +25,13 @@
     df          = diff HEAD -w
     br          = branch
     brm         = branch -D
+    rup         = "!git remote update; git remote prune origin"
     rbrm        = push origin :
     cb          = checkout -b
     fhs         = flow hotfix start
     fhf         = flow hotfix finish
+    ffs         = flow feature start
+    fff         = flow feature finish
     ci          = commit
     co          = checkout
     type        = cat-file -t
