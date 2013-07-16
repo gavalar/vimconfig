@@ -22,7 +22,7 @@
     live        = pull origin master
     mgnoff      = merge --no-ff origin/develop
     d           = difftool
-    df          = diff HEAD -w
+    df          = "!git diff --stat; git diff HEAD -w"
     br          = branch
     brm         = branch -D
     rup         = "!git remote update; git remote prune origin"
