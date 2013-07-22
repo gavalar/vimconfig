@@ -56,6 +56,8 @@
     mvdi        = !git mvim-diverge
     pf          = pull --ff-only
     pu          = pull
+    find        = "!git ls-files | grep -i"
+    fi          = "!git find"
     scoh        = !git submodule-checkout-head
     sf          = !git submodule-foreach
     sfa         = !git submodule-foreach-fetch-all
