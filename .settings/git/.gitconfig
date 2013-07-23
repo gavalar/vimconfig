@@ -23,6 +23,7 @@
     mgnoff      = merge --no-ff origin/develop
     d           = difftool
     df          = "!git diff --stat; git diff HEAD -w"
+    brdf        = diff --stat --color
     br          = branch
     brm         = branch -D
     rup         = "!git remote update; git remote prune origin"
