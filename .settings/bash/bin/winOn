@@ -1,2 +1,3 @@
 #!/bin/bash
-VBoxManage startvm DowJones --type headless
+OPTIONS=$1
+VBoxManage startvm DowJones --type headless $OPTIONS

@@ -22,7 +22,7 @@
     live        = pull origin master
     mgnoff      = merge --no-ff origin/develop
     d           = difftool
-    df          = diff HEAD -w
+    df          = "!git diff --stat; git diff HEAD -w"
     br          = branch
     brm         = branch -D
     rup         = "!git remote update; git remote prune origin"
@@ -56,6 +56,8 @@
     mvdi        = !git mvim-diverge
     pf          = pull --ff-only
     pu          = pull
+    find        = "!git ls-files | grep -i"
+    fi          = "!git find"
     scoh        = !git submodule-checkout-head
     sf          = !git submodule-foreach
     sfa         = !git submodule-foreach-fetch-all
