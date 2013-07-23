@@ -400,8 +400,8 @@ endif
 
 let g:phpqa_messdetector_ruleset = "~/.vim/qatools/pmd.xml"
 let g:phpqa_codesniffer_args = "--standard=FNO"
-let g:phpqa_messdetector_autorun = 1  "Run messdetector on save
-let g:phpqa_codesniffer_autorun = 1 "Run codesniffer on save
+let g:phpqa_messdetector_autorun = 0  "Run messdetector on save
+let g:phpqa_codesniffer_autorun = 0 "Run codesniffer on save
 let g:phpqa_codecoverage_autorun = 0 "Don't show code coverage on load
 let g:SuperTabDefaultCompletionType = "context"
 let g:command_t_loaded = 0 "Disable Command T as not working just yet
