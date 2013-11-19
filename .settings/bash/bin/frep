@@ -8,7 +8,6 @@ $phpFiles = array(
 );
 
 foreach ($phpFiles as $file) {
-
     echo 'Editing ', $file;
     shell_exec("for f in `find . -name *.{$file}`; do sed -i 's/{$from}/{$to}/g' $f ; done");
 }
