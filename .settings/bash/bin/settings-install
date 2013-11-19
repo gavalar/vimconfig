@@ -1,9 +1,9 @@
 #!/bin/bash
 
 cd ~
-rm .bash_aliases .bash_logout .bash_profile .bashrc -rf
+rm .bash_aliases .bash_logout .bash_profile .bashrc bash .gitconfig .gitignore-global .vimrc bin .ackrc -rf
 ln -s .vim/.settings/git/.gitconfig .
 ln -s .vim/.settings/git/.gitignore-global .
-ln -s vim/.vimrc .
+ln -s .vim/.vimrc .
 ln -s .vim/.settings/bash/.* .
 ln -s .vim/.settings/bash/* .
