@@ -102,3 +102,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 cd ~
+# Added by install script for node.js and npm in 30s
+export PATH=$HOME/local/bin:$PATH
+export NODE_PATH=$HOME/local/lib/node_modules
