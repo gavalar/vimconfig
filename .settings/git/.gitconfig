@@ -12,6 +12,7 @@
 [alias]
     bare        = init --bare
     unstash     = stash pop
+    uncommit    = reset HEAD~1 --soft
     st          = status
     rev         = checkout
     ff          = pull --ff-only
@@ -106,3 +107,5 @@
     added = yellow
     changed = green
     untracked = cyan
+[push]
+    default = simple
