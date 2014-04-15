@@ -1,1 +1,1 @@
-/home/corbettg/.vim/.settings/git/bin/git-flow-completion.sh
+/Users/corbettg/.vim/.settings/git/bin/git-flow-completion.sh
