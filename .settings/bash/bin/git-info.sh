@@ -1,1 +1,1 @@
-/home/corbettg/.vim/.settings/git/bin/git-info.sh
+/Users/corbettg/.vim/.settings/git/bin/git-info.sh

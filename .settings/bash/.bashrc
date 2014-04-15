@@ -93,6 +93,7 @@ fi
 
 export PATH=$PATH:$HOME/bin
 
+source ~/bin/git-completion.sh
 source ~/bin/git-flow-completion.sh
 
 # enable programmable completion features (you don't need to enable
@@ -105,3 +106,16 @@ cd ~
 # Added by install script for node.js and npm in 30s
 export PATH=$HOME/local/bin:$PATH
 export NODE_PATH=$HOME/local/lib/node_modules
+
+if [ $TERM = 'xterm-256color' ]; then
+    export CLICOLOR=1
+    export LSCOLORS=GxFxCxDxBxegedabagaced
+    alias wget="curl -OL "
+    alias updatedb="sudo /usr/libexec/locate.updatedb"
+
+    if [ -f /opt/local/etc/bash_completion ]; then
+        . /opt/local/etc/bash_completion
+    fi
+
+    export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/pgsql/bin:/usr/local/php5/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH
+fi
