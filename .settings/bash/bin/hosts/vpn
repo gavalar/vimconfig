@@ -1,0 +1,61 @@
+#########################################
+# VPN DJ EFN IP Addresses               #
+#########################################
+# Non Cloud Production WEB Servers
+10.8.0.18           dr disaster
+10.8.0.98           web1 vweb1
+10.8.0.102          web2 vweb2
+10.8.0.106          web3 vweb3
+10.8.0.94           mail vmail
+10.16.82.88         integration
+
+# Non Cloud BareMetal SQL Cluster IPs
+172.16.101.188      sqlclus1-LIVE
+172.16.101.189      sqlclus2-LIVE
+10.16.82.99         sqlclus1
+10.16.82.99         sqlclus2
+
+# Dev Servers
+10.8.0.30           coms
+10.8.0.66           e2e end2end
+10.8.0.34           qa
+
+# Cloud Servers
+10.177.130.195      api01 #Not accesable fron public internet SSH web1)
+10.177.130.52       api02 #Not accesable fron public internet SSH web2)
+10.8.0.1            sys01 api03 git01 vpn01 vpn.efn.co.uk git01.efn.co.uk
+94.236.53.190       test.page
+10.8.0.74           dev01
+162.13.85.144       app01
+
+#Database Servers
+172.161.101.188     RegsubDB
+172.161.101.189     CmsDB
+10.16.17.153        IntegrationDB
+10.16.82.99         devDB devWebWinDb01
+172.26.78.24        qaDB
+10.16.17.57         end2endDB
+
+##################### OpenVPN #####################
+# OpenVPN Machines and IP Addresses
+#10.8.0.1            vpn01
+#10.8.0.18           dr djevml01
+#10.8.0.94           MAIL
+#10.8.0.98           WEB1
+#10.8.0.102          WEB2
+#10.8.0.106          WEB3
+#10.8.0.30           coms_vpn
+#10.8.0.34           qa_vpn
+#10.8.0.66           endtoend_vpn
+#10.8.0.74           dev01_vpn
+10.8.0.26           husseinf_work
+10.8.0.62           crabbt_home
+10.8.0.50           crabbt_work
+10.8.0.46           corbettg_work
+10.8.0.54           corbettg_home
+10.8.0.58           corbettg_win
+10.8.0.74           api.terry.efn.co.uk
+10.8.0.6            cvanvuuren_work work
+10.8.0.86           kostadinovb_work
+10.8.0.113          kostadinovb_mac
+################### end OpenVPN ###################
