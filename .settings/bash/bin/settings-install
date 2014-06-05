@@ -8,7 +8,6 @@ ln -s .vim/.vimrc .
 ln -s .vim/.settings/bash/.* .
 ln -s .vim/.settings/bash/* .
 mkdir -p ~/.ssh
-cd ~/.ssh
-ln -s ~/.vim/.settings/ssh-config config
-cd ~
+cp .vim/.settings/ssh-config ~/.ssh/config
+chmod 600 ~/.ssh/config
 echo "Copy your id_rsa file to ~/.ssh/ folder"
