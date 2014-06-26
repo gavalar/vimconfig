@@ -7,3 +7,7 @@ ln -s .vim/.settings/git/.gitignore-global .
 ln -s .vim/.vimrc .
 ln -s .vim/.settings/bash/.* .
 ln -s .vim/.settings/bash/* .
+mkdir -p ~/.ssh
+cp .vim/.settings/ssh-config ~/.ssh/config
+chmod 600 ~/.ssh/config
+echo "Copy your id_rsa file to ~/.ssh/ folder"
