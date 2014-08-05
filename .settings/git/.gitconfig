@@ -1,11 +1,11 @@
 [user]
-    name = Gavin Corbett
-    email = gavin.corbett@dowjones.com
+	name = Gavin Corbett
+	email = gavin.corbett@dowjones.com
 [github]
     user = gavalar
     token = 9b67c0444270b2d69a2f1059dd3cbb1c
 [core]
-    excludesfile = ~/.gitignore-global
+	excludesfile = /Users/corbettg/.gitignore-global
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 [mergetool]
     keepBackup = true
@@ -16,7 +16,7 @@
     st          = status
     rev         = checkout
     ff          = pull --ff-only
-    up          = pull --ff-only origin develop
+    up          = "!git fetch; git pull"
     upnoff      = pull origin develop
     pod         = push origin develop
     pom         = push origin master --tags
@@ -109,3 +109,9 @@
     untracked = cyan
 [push]
     default = simple
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
