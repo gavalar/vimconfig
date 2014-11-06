@@ -1,0 +1,28 @@
+startup_message off
+vbell off
+autodetach on
+
+#scrollback 10000
+defscrollback 10000
+
+#hardstatus on
+#hardstatus alwayslastline
+#hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
+#hardstatus string "%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %{..Y} %d/%m %C%a"
+
+
+caption always
+#caption string "%{Rk}[%{wk}$USER%{Bk}@%{wk}%H%{Rk}] [%{wk}%c %{wk}%d%{Bk}/%{wk}%m%{Bk}/%{wk}%Y%{Rk}] [%{wk}%l%{Rk}] [%{wk}%w%{Rk}]"
+caption string "%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %{..Y} %d/%m %C%a"
+
+#layout autosave on
+#termcapinfo xterm*|rxvt*|kterm*|Eterm* ti@:te@
+#altscreen on
+
+# Default screens
+screen -T xterm -t dev01 1
+screen -T xterm -t web1  2
+screen -T xterm -t web2  3
+screen -T xterm -t web3  4
+screen -T xterm -t api01 5
+screen -T xterm -t api02 6
