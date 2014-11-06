@@ -107,8 +107,6 @@
     added = yellow
     changed = green
     untracked = cyan
-[push]
-    default = simple
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =

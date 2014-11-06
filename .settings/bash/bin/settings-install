@@ -5,6 +5,7 @@ rm .bash_aliases .bash_logout .bash_profile .bashrc bash .gitconfig .gitignore-g
 ln -s .vim/.settings/git/.gitconfig .
 ln -s .vim/.settings/git/.gitignore-global .
 ln -s .vim/.vimrc .
+ln -s .vim/.screenrc .
 ln -s .vim/.settings/bash/.* .
 ln -s .vim/.settings/bash/* .
 mkdir -p ~/.ssh
