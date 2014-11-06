@@ -75,6 +75,7 @@ au BufNewFile,BufRead *.html set filetype=php
 au BufNewFile,BufRead *.htm set filetype=php
 au BufNewFile,BufRead *.lng set filetype=php
 au BufNewFile,BufRead *.inc set filetype=php
+au BufNewFile,BufRead *.mu set filetype=html
 
 au BufNewFile,BufRead *.json set filetype=javascript
 
