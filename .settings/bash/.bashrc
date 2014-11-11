@@ -41,44 +41,6 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm*) color_prompt=yes;;
-esac
-
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-#force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-        color_prompt=yes
-    else
-        color_prompt=
-    fi
-fi
-
-if [ "$color_prompt" = yes ]; then
-    if [ $(id -u) -eq 0 ]; then
-        PS1='[`cat /proc/loadavg`]:\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] # '
-    else
-      PS1="[ \[\033[01;33m\]`cat /proc/loadavg | awk '{ print $1; }'`\[\033[00m\] ]:\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] $ "
-    fi
-else
-    PS1='[`cat /proc/loadavg`]:\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-      PS1="[ \[\033[01;33m\]`cat /proc/loadavg | awk '{ print $1; }'`\[\033[00m\] ]:\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] $ "
-    ;;
-*)
-    ;;
-esac
-
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -119,3 +81,34 @@ if [ $TERM = 'xterm-256color' ]; then
 
     export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/pgsql/bin:/usr/local/php5/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH
 fi
+
+prompt_command () {
+    if [ $? -eq 0 ]; then # set an error string for the prompt, if applicable
+        ERRPROMPT=" "
+    else
+        ERRPROMPT='->($?) '
+    fi
+    if [ "\$(type -t __git_ps1)" ]; then # if we're in a Git repo, show current branch
+        BRANCH="\$(__git_ps1 '[ %s ] ')"
+    fi
+    local LOAD=`uptime|awk '{min=NF-2;print $min}'`
+    local GREEN="\[\033[1;32m\]"
+    local YELLOW="\[\033[1;33m\]"
+    local BCYAN="\[\033[1;36m\]"
+    local BLUE="\[\033[1;34m\]"
+    local GRAY="\[\033[1;37m\]"
+    local WHITE="\[\033[1;37m\]"
+    local RED="\[\033[1;31m\]"
+    # return color to Terminal setting for text color
+    local DEFAULT="\[\033[0;39m\]"
+    # set the titlebar to the last 2 fields of pwd
+    export PS1="${GREEN}\u@\h${DEFAULT}(${YELLOW}${LOAD}${DEFAULT}):${BLUE}\w${DEFAULT} $ "
+}
+PROMPT_COMMAND=prompt_command
+
+pwdtail () { #returns the last 2 fields of the working directory
+    pwd|awk -F/ '{nlast = NF -1;print $nlast"/"$NF}'
+}
+chkload () { #gets the current 1m avg CPU load
+    echo `uptime|awk '{print $8}'`
+}
