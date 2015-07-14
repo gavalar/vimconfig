@@ -75,9 +75,6 @@ au BufNewFile,BufRead *.html set filetype=php
 au BufNewFile,BufRead *.htm set filetype=php
 au BufNewFile,BufRead *.lng set filetype=php
 au BufNewFile,BufRead *.inc set filetype=php
-au BufNewFile,BufRead *.mu set filetype=html
-
-au BufNewFile,BufRead *.json set filetype=javascript
 
 " set "make" command when editing php files
 set makeprg=php\ -l\ %
@@ -349,7 +346,6 @@ au BufWinEnter *.php let w:m2=matchadd('ErrorMsg', '\%>160v.\+', -1)
 au BufWinEnter *.php let w:m3=matchadd('ErrorMsg', '\s\+$', -1)
 au BufWinEnter *.php let w:m4=matchadd('ErrorMsg', '\(if\|foreach\|switch\|elseif\)(', -1)
 au BufRead,BufNewFile inc.php set syntax=php
-au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
 au FileType php set omnifunc=phpcomplete#CompletePHP
 let g:SuperTabDefaultCompletionType = "context"
@@ -422,3 +418,10 @@ function! PhpQAToggle()
 endfunction
 
 let g:gitgutter_diff_args = '-w'
+
+" Things for JS (Node.js) conventions 2 spaces (not 4)
+au BufNewFile,BufRead *.js set filetype=javascript
+au BufNewFile,BufRead jquery.*.js set filetype=javascript syntax=jquery
+au BufNewFile,BufRead *.json set filetype=javascript
+au BufNewFile,BufRead *.mu set filetype=html
+autocmd FileType javascript :setlocal sw=2 ts=2 sts=2

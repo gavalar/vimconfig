@@ -57,6 +57,7 @@ export PATH=$PATH:$HOME/bin
 
 source ~/bin/git-completion.sh
 source ~/bin/git-flow-completion.sh
+source ~/bin/iterm2_shell_integration.bash
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -112,3 +113,4 @@ pwdtail () { #returns the last 2 fields of the working directory
 chkload () { #gets the current 1m avg CPU load
     echo `uptime|awk '{print $8}'`
 }
+
