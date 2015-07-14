@@ -21,14 +21,16 @@
     upnoff      = pull origin develop
     pod         = push origin develop
     pom         = push origin master --tags
-    live        = pull origin master
+    live        = "!git pod; git pom"
     mgnoff      = merge --no-ff origin/develop
     d           = difftool
+    show-files  = diff-tree --no-commit-id --name-only -r
     df          = "!git diff --stat; git diff HEAD -w"
     brdf        = diff --stat --color
     br          = branch
     brm         = branch -D
     rup         = "!git remote update; git remote prune origin"
+    ready       = "!git co master; git up; git co develop; git up"
     rbrm        = push origin :
     cb          = checkout -b
     fhs         = flow hotfix start

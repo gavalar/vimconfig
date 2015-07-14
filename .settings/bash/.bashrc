@@ -92,7 +92,7 @@ prompt_command () {
     if [ "\$(type -t __git_ps1)" ]; then # if we're in a Git repo, show current branch
         BRANCH="\$(__git_ps1 '[ %s ] ')"
     fi
-    local LOAD=`uptime|awk '{min=NF-2;print $min}'`
+    local LOAD=`cat /proc/loadavg | awk '{printf \$1}'`
     local GREEN="\[\033[1;32m\]"
     local YELLOW="\[\033[1;33m\]"
     local BCYAN="\[\033[1;36m\]"
@@ -113,4 +113,3 @@ pwdtail () { #returns the last 2 fields of the working directory
 chkload () { #gets the current 1m avg CPU load
     echo `uptime|awk '{print $8}'`
 }
-
