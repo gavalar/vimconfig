@@ -352,7 +352,7 @@ let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
 
 call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+execute pathogen#infect()
 
 " change the mapleader from \ to ,
 let mapleader=","

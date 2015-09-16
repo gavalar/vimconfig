@@ -15,7 +15,7 @@
     unstash     = stash pop
     uncommit    = reset HEAD~1 --soft
     st          = status
-    rev         = checkout
+    rev         = checkout HEAD
     ff          = pull --ff-only
     up          = "!git fetch; git pull"
     upnoff      = pull origin develop
