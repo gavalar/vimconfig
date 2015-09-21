@@ -4,6 +4,7 @@
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
+export TERM=xterm-256color
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -69,6 +70,7 @@ cd ~
 # Added by install script for node.js and npm in 30s
 export PATH=$HOME/local/bin:$PATH
 export NODE_PATH=$HOME/local/lib/node_modules
+
 
 if [ $TERM = 'xterm-256color' ]; then
     export CLICOLOR=1
