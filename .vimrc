@@ -4,9 +4,8 @@ set et
 set bg=dark
 set smartindent
 set fileencodings=utf-8
-if $TERM != 'xterm'
-    colorscheme gc-ubuntu " Only required for Mac iTerm2 client
-endif
+set t_Co=256
+colorscheme gc-ubuntu
 set noeb
 set novb
 set path=.,, "stop that annoying display of every config file on the system!
@@ -352,7 +351,7 @@ let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
 
 call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+execute pathogen#infect()
 
 " change the mapleader from \ to ,
 let mapleader=","
@@ -402,6 +401,9 @@ let g:phpqa_codesniffer_autorun = 0 "Run codesniffer on save
 let g:phpqa_codecoverage_autorun = 0 "Don't show code coverage on load
 let g:SuperTabDefaultCompletionType = "context"
 let g:command_t_loaded = 0 "Disable Command T as not working just yet
+let g:airline_enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 function! PhpQAToggle()
     if g:phpqa_messdetector_autorun

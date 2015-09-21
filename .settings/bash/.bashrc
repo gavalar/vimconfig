@@ -4,6 +4,7 @@
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
+export TERM=xterm-256color
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -70,6 +71,7 @@ cd ~
 export PATH=$HOME/local/bin:$PATH
 export NODE_PATH=$HOME/local/lib/node_modules
 
+
 if [ $TERM = 'xterm-256color' ]; then
     export CLICOLOR=1
     export LSCOLORS=GxFxCxDxBxegedabagaced
@@ -92,7 +94,8 @@ prompt_command () {
     if [ "\$(type -t __git_ps1)" ]; then # if we're in a Git repo, show current branch
         BRANCH="\$(__git_ps1 '[ %s ] ')"
     fi
-    local LOAD=`cat /proc/loadavg | awk '{printf \$1}'`
+    #local LOAD=`cat /proc/loadavg | awk '{printf \$1}'`
+    local LOAD=`uptime|awk '{min=NF-2;print $min}'`
     local GREEN="\[\033[1;32m\]"
     local YELLOW="\[\033[1;33m\]"
     local BCYAN="\[\033[1;36m\]"
