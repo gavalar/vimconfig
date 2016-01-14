@@ -116,3 +116,6 @@ pwdtail () { #returns the last 2 fields of the working directory
 chkload () { #gets the current 1m avg CPU load
     echo `uptime|awk '{print $8}'`
 }
+function tabtitle {
+    echo -ne "\033]0;"$*"\007"
+}
