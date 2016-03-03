@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cd ~/subs
+echo 'Checking site repo...'
+cd site; git up
+echo 'Checking Regsub repo...'
+cd ../regsub-orm; git up
+echo 'Checking Regsub-client repo...'
+cd ../regsub-orm-client; git up
+echo 'Checking Integrations repo...'
+cd ../integrations; git up
+echo 'Checking Integrations-client repo...'
+cd ../integrations-client; git up
