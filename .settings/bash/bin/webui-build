@@ -1,0 +1,10 @@
+#!/bin/bash
+
+cd ~/webUi
+echo "Building WebUI"
+build-ui
+
+echo "Building FN App"
+build-fn
+
+echo "Finished and linked"

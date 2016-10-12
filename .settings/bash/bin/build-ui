@@ -1,0 +1,14 @@
+#!/bin/bash
+
+echo "1/4: Change DIR to WebUI"
+cd ~/webUi/web-ui
+echo "2/4: (WebUI) Installing Node Modules"
+#rm -rf node_modules/
+#npm cache clear
+#npm install
+echo "3/4: (WebUI) Running Build"
+gulp build
+echo "4/4: (WebUI) Linking WebUI"
+npm link
+
+echo "WebUI Built sucessfully!!!"

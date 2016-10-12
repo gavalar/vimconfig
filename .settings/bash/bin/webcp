@@ -1,0 +1,13 @@
+#!/bin/bash
+
+FILE=$1
+LOCATION=$2
+
+echo 'Copying file to web1'
+scp $1 web1:$2
+
+echo 'Copying file to web2'
+scp $1 web2:$2
+
+echo 'Copying file to web3'
+scp $1 web3:$2

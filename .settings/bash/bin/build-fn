@@ -1,0 +1,14 @@
+#!/bin/bash
+
+echo "1/4: Change DIR to FN Web App"
+cd ~/webUi/fn-web-app
+echo "2/4: (FN App) Installing Node Modules"
+#rm -rf node_modules/
+#npm cache clear
+#npm install
+echo "3/4: (FN App) Running Build"
+npm run build
+echo "4/4: (FN App) Linking WebUI"
+npm link
+
+echo "FN Web App Built sucessfully!!!"
