@@ -74,6 +74,7 @@
     su          = branch --set-upstream
     ribbon      = tag --force _ribbon origin/master
     catchup     = log --patch --reverse --topo-order _ribbon..origin/master
+#    find-replace = "!sh 'git grep -lz \'$1\' | xargs -0 perl -i\'\' -pE \'s/$1/$2/g\'"
 
     #get-head   = !git branch --no-color --contains HEAD | grep -v '(no branch)' | head -n 1 | sed -E 's/^[^a-zA-Z\\/-]*([a-zA-Z\\/-]+)$/\\1/g'
     amend       = commit --amend

@@ -1,2 +1,6 @@
 -i
---ignore-dir=/home/corbettg/sites/projects/fno/public/sitemapContent
+--follow
+--json
+--js
+--css
+--php
