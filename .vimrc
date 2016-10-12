@@ -426,4 +426,4 @@ au BufNewFile,BufRead *.js set filetype=javascript
 au BufNewFile,BufRead jquery.*.js set filetype=javascript syntax=jquery
 au BufNewFile,BufRead *.json set filetype=javascript
 au BufNewFile,BufRead *.mu set filetype=html
-autocmd FileType javascript :setlocal sw=2 ts=2 sts=2
+"autocmd FileType javascript :setlocal sw=2 ts=2 sts=2

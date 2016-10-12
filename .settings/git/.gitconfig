@@ -30,7 +30,7 @@
     br          = branch
     brm         = branch -D
     rup         = "!git remote update; git remote prune origin"
-    ready       = "!git co master; git up; git co develop; git up"
+    ready       = "!git co master; git up; git co develop; git pull"
     rbrm        = push origin :
     cb          = checkout -b
     fhs         = flow hotfix start
@@ -116,7 +116,5 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
-[push]
-	default = simple
 [url "https://"]
 	insteadOf = git://

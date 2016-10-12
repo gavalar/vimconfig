@@ -21,7 +21,7 @@ screen -T xterm -t web2  2
 screen -T xterm -t web3  3
 screen -T xterm -t api01 4
 screen -T xterm -t api02 5
-screen -T xterm -t mail  6
-screen -T xterm -t app01 7
-screen -T xterm -t sys01 8
-screen -T xterm -t web01 9
+screen -T xterm -t web01 6
+screen -T xterm -t e2e 7
+screen -T xterm -t e2e integration   8
+screen -T xterm -t live integration   9
