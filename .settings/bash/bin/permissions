@@ -1,6 +1,0 @@
-#!/bin/bash
-
-FOLDER=$1
-
-sudo chown apache:webdev -R $FOLDER
-sudo chmod 0775 -R $FOLDER

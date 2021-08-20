@@ -1,6 +1,0 @@
-#!/bin/bash
-
-sudo apt-get install build-essential linux-headers-`uname -r`
-sudo dpkg-reconfigure virtualbox-dkms
-sudo dpkg-reconfigure virtualbox
-sudo /etc/init.d/vboxdrv setup

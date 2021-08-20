@@ -1,0 +1,18 @@
+#!/bin/bash
+
+cd ~/subs
+echo 'Checking site repo...'
+cd site; git co master; git up; rm -rf ./node_modules; npm cache clear; npm install
+echo 'Checking Regsub repo...'
+cd ../regsub-orm; git co master; git up;  rm -rf ./node_modules; npm cache clear; npm install
+echo 'Checking Regsub-client repo...'
+cd ../regsub-orm-client; git co master; git up;  rm -rf ./node_modules; npm cache clear; npm install
+echo 'Checking Integrations repo...'
+cd ../integrations; git co master; git up;  rm -rf ./node_modules; npm cache clear; npm install
+echo 'Checking Integrations-client repo...'
+cd ../integrations-client; git co master; git up;  rm -rf ./node_modules; npm cache clear; npm install
+echo 'Linking all repos.....'
+cd ../site;
+rm -rf ./node_modules/integrations-client; ln -s ../../integrations-client ./node_modules/
+rm -rf ./node_modules/regsub-orm-client; ln -s ../../regsub-orm-client ./node_modules/
+

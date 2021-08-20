@@ -1,0 +1,18 @@
+#!/bin/bash
+
+FILE=$1
+
+echo "Starting image resize (SUPERSIZE) - " $FILE
+mogrify -resize 300x $FILE
+echo "Uploading to Web Servers"
+scp $FILE web1:/var/www/projects/events/htdocs/events/media/images/upload-supersize
+scp $FILE web2:/var/www/projects/events/htdocs/events/media/images/upload-supersize
+scp $FILE web3:/var/www/projects/events/htdocs/events/media/images/upload-supersize
+
+echo "Starting image resize (Normal) - " $FILE
+mogrify -resize 285x $FILE
+echo "Uploading to Web Servers"
+scp $FILE web1:/var/www/projects/events/htdocs/events/media/images/upload-normal
+scp $FILE web2:/var/www/projects/events/htdocs/events/media/images/upload-normal
+scp $FILE web3:/var/www/projects/events/htdocs/events/media/images/upload-normal
+

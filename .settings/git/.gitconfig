@@ -1,6 +1,3 @@
-[user]
-	name = Gavin Corbett
-	email = gavin.corbett@dowjones.com
 [github]
     user = gavalar
     token = 9b67c0444270b2d69a2f1059dd3cbb1c
@@ -28,7 +25,7 @@
     df          = "!git diff --stat; git diff HEAD -w"
     wdf         = diff --word-diff
     brdf        = diff --stat --color
-    br          = branch
+    br          = checkout -b
     brm         = branch -D
     rup         = "!git remote update; git remote prune origin"
     ready       = "!git co master; git up; git co develop; git pull"
@@ -41,6 +38,8 @@
     fff         = flow feature finish
     ci          = commit
     co          = checkout
+    wayback     = reflog
+    takemeback  = reset HEAD@
     type        = cat-file -t
     dump        = cat-file -p
     coh         = !git checkout-head
@@ -51,6 +50,7 @@
     ign         = ls-files -o -i --exclude-standard
     mrgdev      = !git merge develop
     fa          = !git fetch-all
+    force-master = "!git fetch --alll; git reset --hard origin/master; git pull origin master"
     gh          = !git get-head
     gha         = !git get-head-all
     ghr         = !git get-head-remote
@@ -75,6 +75,7 @@
     su          = branch --set-upstream
     ribbon      = tag --force _ribbon origin/master
     catchup     = log --patch --reverse --topo-order _ribbon..origin/master
+    delete-all  = "!git co master; git for-each-ref --format '%(refname:short)' refs/heads/ | grep -v master | xargs git branch -d"
 
     #get-head   = !git branch --no-color --contains HEAD | grep -v '(no branch)' | head -n 1 | sed -E 's/^[^a-zA-Z\\/-]*([a-zA-Z\\/-]+)$/\\1/g'
     amend       = commit --amend
@@ -112,15 +113,19 @@
     added = yellow
     changed = green
     untracked = cyan
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [url "https://"]
 	insteadOf = git://
-#[credential]
-#´	helper = osxkeychain
+[credential]
+    helper = osxkeychain
 [push]
-	default = simple
+	default = current
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[user]
+	email = gavin.corbett@dowjones.com
+	name = Gavin Corbett
+[http]
+	sslVerify = false

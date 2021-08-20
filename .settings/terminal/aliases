@@ -1,0 +1,28 @@
+# some ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias vimcache="cd ~/.vim/tmp; rm -rf *; cd -; cd ~/.vim/backup; rm -rf *; cd -"
+alias st="svn st *"
+alias updatedb="sudo /usr/libexec/locate.updatedb"
+alias wget="curl -OL "
+alias sc="screen -T xterm-256color -D -RR"
+alias mxlookup="nslookup -type=mx "
+alias textedit="open -a TextEdit "
+alias open-gui="open -t "
+alias npm-clean="rm -rf node_modules/; npm install"
+alias mongod="mongod --config ~/.mongorc"
+alias uuid="uuidgen | tr 'A-Z' 'a-z'"
+alias dock-ssh="docker exec -it neon_wordpress_1 bash"
+alias gc-rebuild="cd ~/Development/fn/section/grand-canyon; cd node_modules/web-ui-2; npm run build; cd -; npm run build"
+alias fucking="sudo"
+alias neon-build="cd ~/Development/wp/neon; docker build -t mgcms ."
+alias neon-rm="docker container rm neon -f"
+alias neon-stop="docker container stop neon"
+alias neon-start="docker run --publish 80:80 --env-file ~/Development/wp/.env.lst --name neon mgcms"
+alias neon-ssh="docker exec -it neon /bin/bash"
+alias wp-build="cd ~/Development/fn/cms; docker build -t fncms ."
+alias wp-rm="docker container rm fnwp -f"
+alias wp-start="docker run --publish 80:80 --env-file ~/Development/wp/.env.lst --name fnwp fncms"
+alias wp-ssh="docker exec -it fnwp /bin/bash"
+alias wp-stop="docker container stop fnwp"

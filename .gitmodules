@@ -1,3 +1,6 @@
 [submodule "snippets"]
 	path = snippets
 	url = https://github.com/scrooloose/snipmate-snippets.git
+[submodule ".settings/zsh/.oh-my-zsh"]
+	path = .settings/zsh/.oh-my-zsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git

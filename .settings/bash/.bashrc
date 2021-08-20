@@ -11,7 +11,7 @@ export TERM=xterm-256color
 HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
-shopt -s histappend
+#shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
@@ -19,7 +19,7 @@ HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
-shopt -s checkwinsize
+#shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
@@ -56,9 +56,9 @@ fi
 
 export PATH=$PATH:$HOME/bin
 
-source ~/bin/git-completion.sh
-source ~/bin/git-flow-completion.sh
-source ~/bin/iterm2_shell_integration.bash
+#source ~/bin/git-completion.sh
+#source ~/bin/git-flow-completion.sh
+#source ~/bin/iterm2_shell_integration.bash
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -119,6 +119,9 @@ chkload () { #gets the current 1m avg CPU load
 function tabtitle {
     echo -ne "\033]0;"$*"\007"
 }
+
+export VAULT_ADDR=https://vault.keystore.dowjones.io
+export VAULT_NAMESPACE=pubedit/intlzv
 
 # NVM
 if [ -s ~/.nvm/nvm.sh ]; then

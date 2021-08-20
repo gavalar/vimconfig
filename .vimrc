@@ -18,6 +18,8 @@ nmap <C-T><C-T> :TlistToggle<CR>
 nmap <C-S><C-S> :%s/\s\+$//g<CR>
 nmap <C-N><C-S> :/\(isValid(\)\@<!$_\(GET\|POST\|REQUEST\|SERVER\|COOKIE\)
 nmap <C-A><C-A> :call PhpQAToggle()<CR>
+let &t_SI = "\e[2 q" " set cursor
+let &t_EI = "\e[2 q" " set cursor
 
 " Sessions stuff
 set sessionoptions+=curdir
@@ -140,8 +142,8 @@ autocmd FileType php hi MatchParen ctermbg=blue guibg=lightblue
 " }
 
 " Vim UI {
-    "set cursorcolumn " highlight the current column
-    "set cursorline " highlight current line
+    set cursorcolumn " highlight the current column
+    set cursorline  " highlight current line
     set incsearch " BUT do highlight as you type you
                    " search phrase
     set laststatus=2 " always show the status line
@@ -150,7 +152,7 @@ autocmd FileType php hi MatchParen ctermbg=blue guibg=lightblue
                      " betweens rows
     set list " we do what to show tabs, to ensure we get them
               " out of my files
-    "set listchars=tab:>-,trail:- " show tabs and trailing
+    "set listchars=tab:>.,trail:- " show tabs and trailing
     set matchtime=5 " how many tenths of a second to blink
                      " matching brackets for
     set nohlsearch " do not highlight searched for phrases
@@ -427,3 +429,6 @@ au BufNewFile,BufRead jquery.*.js set filetype=javascript syntax=jquery
 au BufNewFile,BufRead *.json set filetype=javascript
 au BufNewFile,BufRead *.mu set filetype=html
 "autocmd FileType javascript :setlocal sw=2 ts=2 sts=2
+"
+
+set invlist

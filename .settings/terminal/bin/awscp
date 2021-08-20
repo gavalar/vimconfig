@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo "Copying $1 to s3://djcs-prod-efn/$2/"
+aws s3 cp $1 "s3://djcs-prod-efn/$2/$1" --acl public-read  --cache-control max-age=300
+
+echo "File can be found at https://assets.fnlondon.com/$2/$1"

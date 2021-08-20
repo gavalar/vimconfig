@@ -1,5 +1,0 @@
-#!/bin/bash
-export DISPLAY=:0;
-sm ' Helpdesk';
-sleep 10;
-EXIT

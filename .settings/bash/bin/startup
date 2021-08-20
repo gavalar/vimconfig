@@ -1,8 +1,0 @@
-#!/bin/bash
-
-sudo service avahi-daemon stop
-
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get autoclean
-sudo apt-get autoremove
