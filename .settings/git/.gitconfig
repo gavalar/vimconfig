@@ -126,6 +126,6 @@
 	clean = git-lfs clean -- %f
 [user]
 	email = gavin.corbett@dowjones.com
-	name = Gavin Corbett
+	name = GavCorbett
 [http]
 	sslVerify = false
