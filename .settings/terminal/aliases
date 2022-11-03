@@ -1,4 +1,5 @@
 # some ls aliases
+alias ll='ls -al'
 alias la='ls -A'
 alias l='ls -A'
 alias vimcache="cd ~/.vim/tmp; rm -rf *; cd -; cd ~/.vim/backup; rm -rf *; cd -"
@@ -31,3 +32,5 @@ alias mg="cd ~/Development/wp/dj-wp-local-development/publications/dj-wp-mansion
 alias mu="mg; cd wordpress/wp-content/mu-plugins; ls -al"
 alias np-start="dev; ./app start"
 alias mgvault="vault login -method=okta -namespace=pubedit/devlzv username=gavin.corbett@dowjones.com;vault read -format=json -namespace=pubedit/intlzv secret/bgwp/mansionglobal/pipeline/refresh_token"
+alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
+alias dps="docker ps"

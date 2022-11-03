@@ -28,7 +28,8 @@
     br          = checkout -b
     brm         = branch -D
     rup         = "!git remote update; git remote prune origin"
-    ready       = "!git co master; git up; git co develop; git pull"
+    ready       = "!composer up; nvm use 14.15.2; npm i; npm run build"
+    renew       = "!rm -rf package-lock.json composer.lock node_modules vendor; git ready"
     aup         = "!git stash; git up; git pull origin staging; git ci -am 'Merge with Staging'; git unstash"
     rbrm        = push origin :
     cb          = checkout -b
@@ -94,8 +95,11 @@
     unstage     = reset HEAD --
     diverges    = !sh -c 'git rev-list --boundary $1...$2 | grep ^- | cut -c2-'
     diff-name   = !git diff --name-only
+    browse      = !git-browse
+    open        = !git-browse
     mvim-diff   = "!f() { git-diff --name-only $1 | xargs mvim; }; f"
     mvim-diverge    = "!f() { git diverges HEAD $1 | xargs git mvim-diff; }; f"
+    recover-commit-message = "!f() { git commit -e --file=$(git rev-parse --git-dir)/COMMIT_EDITMSG; }; f"
 #    mvim-diff   = !sh -c 'git diff-name $1 | xargs mvim'
 [color]
     ui = auto

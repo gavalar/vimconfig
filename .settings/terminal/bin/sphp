@@ -1,0 +1,3 @@
+#!/bin/sh
+
+brew unlink php && brew link --overwrite --force php@$1
