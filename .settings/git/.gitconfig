@@ -27,6 +27,7 @@
     brdf        = diff --stat --color
     br          = checkout -b
     brm         = branch -D
+    bmv         = branch -m
     rup         = "!git remote update; git remote prune origin"
     ready       = "!composer up; nvm use 14.15.2; npm i; npm run build"
     renew       = "!rm -rf package-lock.json composer.lock node_modules vendor; git ready"

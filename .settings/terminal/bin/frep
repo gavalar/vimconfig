@@ -1,13 +1,8 @@
-#!/usr/bin/php
-<?php
+#!/bin/sh
 
-$phpFiles = array(
-    'php',
-    'phtml',
-    'html'
-);
-
-foreach ($phpFiles as $file) {
-    echo 'Editing ', $file;
-    shell_exec("for f in `find . -name *.{$file}`; do sed -i 's/{$from}/{$to}/g' $f ; done");
-}
+echo "Replaceing '$1' with '$2' in all PHP Files"
+ack $1
+find . -type f -name "*.php" -print0 | xargs -0 sed -i '' -e "s/$1/$2/g"
+echo "Complete"
+ack $2
+echo "To update JS files run $ find . -type f -name \"*.js\" -print0 | xargs -0 sed -i '' -e \"s/$1/$2/g\""
