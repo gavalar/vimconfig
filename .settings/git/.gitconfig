@@ -32,7 +32,7 @@
     ready       = "!composer up; nvm use 14.15.2; npm i; npm run build"
     renew       = "!rm -rf package-lock.json composer.lock node_modules vendor; git ready"
     aup         = "!git stash; git up; git pull origin staging; git ci -am 'Merge with Staging'; git unstash"
-    rbrm        = push origin :
+    rbrm        = push origin --delete
     cb          = checkout -b
     fhs         = flow hotfix start
     fhf         = flow hotfix finish

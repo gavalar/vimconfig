@@ -1,0 +1,3 @@
+#!/bin/sh
+
+/Users/corbettg/Development/wp/dj-wp-local-development/plugin co -p $1 -b $2 -firs
