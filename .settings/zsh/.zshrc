@@ -129,8 +129,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
 source ~/.iterm2_shell_integration.zsh
 source ~/bin/git-ci-helpers.sh
+source ~/bin/shell-helpers.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH=~/bin:$PATH
 export PATH="$HOME/.composer/vendor/bin:$PATH"
+
