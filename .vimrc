@@ -43,7 +43,6 @@ set ruler
 
 set wrapscan
 set incsearch
-nnoremap <Esc>P P'[v' ]=
 set undolevels=1000
 
 :imap ;EM gavin.corbett@dowjones.com
