@@ -1,0 +1,12 @@
+#!/bin/sh
+
+echo "Uploading $1 to FN London"
+awscp $1 static/fn
+echo "File can be found at https://www.fnlondon.com/$1"
+
+echo""
+
+echo "Uploading $1 to PE News"
+awscp $1 static/pen
+echo "File can be found at https://www.penews.com/$1"
+
